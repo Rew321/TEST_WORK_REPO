@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Document</title>
+    <style>
+        body{
+            background-color: #f9f9f9;
+        }
+        .element{
+            width: 70%;
+            height: 200px;
+            margin-left: 20px;
+           
+        }
+
+        .element:hover{
+            box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) inset,
+            -10px -10px 10px white inset;
+        }
+        .container{
+           display: none; 
+           height: 40vh;
+           width: 300px;
+           border-radius: 16px;
+           box-shadow: inset;
+           background-color: #55a4f8;
+    
+        }
+        #mycheckbox:checked ~ .container{
+            display: block;
+        }
+        /* Responsive box */
+        .box{
+            /* width: 800px;
+            max-width: 90%; */
+            width: min(800px, 90%);
+            text-align: justify;
+            background-color:slateblue;
+        }
+        .box p{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        /* Responsive box */
+        .box2{
+            width: clamp(400px, 50vw, 800px);
+            text-align: justify;
+            background-color:rgb(136, 121, 235);
+        }
+        .box2 p{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .card{
+            width: 350px;
+            height: 60vh;
+            border-radius: 16px;
+            margin-left: 100px;
+            position: relative;
+            background: url("images/flower.jpg") no-repeat center;
+            background-size: cover;
+        }
+       .card .card1{
+            height: 50vh;
+            width: 300px;
+            top: 20px;
+            left: 20px;
+            position: absolute;
+            border-width: 30px;
+            border-color: black;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .button{
+            border-radius: 16px;
+            width: 80px;
+            height: 5vh;
+            background-color: rgb(16, 120, 246);
+        }
+        .button:hover{
+            animation-name: bounce;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(5, start);
+        }
+
+        .button:not(:first-child){
+            color: #f9f9f9;
+            background-color: rgb(95, 38, 237);
+        }
+        button:has(svg){
+            padding-right: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            fill: white;
+        }
+
+        body:has(option[value="dark"]:checked){
+            --background: black;
+            --text-color: white;
+        }
+
+        .gradient-text{
+            background: linear-gradient(to right, red, blue);
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* numbering */
+        :root{
+            counter-reset: headings;
+        }
+        h2{
+            counter-increment: headings;
+        }
+        h2::before{
+            content:counter(headings);
+            background-color: #0071FF;
+            border-radius: 2px;
+            padding: .15em 0;
+            width: 100px;
+            text-align: center;
+        }
+        .wrapper{
+            display: flex;
+            gap: 20px;
+            width: 350px;
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+        }
+        .caos{
+            scroll-snap-align: center;
+            box-sizing: border-box;
+            padding: 20px 30px;
+            flex-shrink: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: 14px;
+            text-align: justify;
+        }
+
+        input{
+            background-color: transparent;
+            width: 70%;
+            color: white;
+            border-radius: 16px;
+        }
+        .contents{
+            margin-left: 20px;
+        }
+        span{
+            color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="element">
+        hello
+    </div>
+    <br><br>
+    <hr>
+    <br><br>
+    <input type="checkbox" id="mycheckbox" hidden>
+    <label for="mycheckbox">My bio</label>
+    <br><br>
+    <hr>
+    <div class="container" id="mycheckbox">
+        <p>hello my name is Andre Okitoi and iam  aconputer scientis</p>
+    </div>
+    <br><br>
+    <hr>
+    <div class="box">
+        <h3>Hello Lorem...</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore ipsam dolores voluptates vero tempora, 
+            libero odit consequatur nulla perferendis porro.
+             Corrupti aperiam sed magnam exercitationem odio, veritatis id quia amet.
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore ipsam dolores voluptates vero tempora, 
+             libero odit consequatur nulla perferendis porro.
+              Corrupti aperiam sed magnam exercitationem odio, veritatis id quia amet.</p>
+    </div>
+    <br><br>
+    <hr>
+    <div class="box2">
+        <h3>Hello Lorem...</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore ipsam dolores voluptates vero tempora, 
+            libero odit consequatur nulla perferendis porro.
+             Corrupti aperiam sed magnam exercitationem odio, veritatis id quia amet.
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore ipsam dolores voluptates vero tempora, 
+             libero odit consequatur nulla perferendis porro.
+              Corrupti aperiam sed magnam exercitationem odio, veritatis id quia amet.</p>
+    </div>
+    <h1>TIP NUMBER 5: GLASS MORPHISM</h1>
+    <br>
+    <div class="card">
+        <div class="card1">
+            <div class="contents">
+                <div class="input-group mb-2">
+                    <span class="btn border-secondary bg-light side-label txt-sm"><i class="fas fa-user-alt">Firstname</i></span><br>
+                    <input type="text" class="form-control txt-sm" name="fname" maxlength="20" placeholder="Firstname" required>
+                </div>
+                <div class="input-group mb-2">
+                    <span class="btn border-secondary bg-light side-label txt-sm"><i class="fas fa-user-alt">Email</i></span><br>
+                    <input type="email" class="form-control txt-sm" name="fname" maxlength="20" placeholder="Email" required>
+                </div>
+                <div class="input-group mb-2">
+                    <span class="btn border-secondary bg-light side-label txt-sm"><i class="fas fa-user-alt">password</i></span><br>
+                    <input type="password" class="form-control txt-sm" name="fname" maxlength="20" placeholder="password" required>
+                </div><br>
+                <button type="submit" class="btn btn-secondary mb-3 txt-sm" style="border-radius: 16px;background: crimson;">
+                    <i class="fas fa-plus"></i>&nbsp;&nbsp; Submit
+                </button>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <h1>STYLING THE BUTTONS</h1>
+    <div class="buttons">
+        
+            <button class="button">Like</button>
+            <button class="button">Like</button>
+            <button class="button">Like<svg xmlns="http://www.w3.org/2000/svg"></svg></button>
+            <button class="button">Like<svg xmlns="http://www.w3.org/2000/svg"><image height="10" width="10" href="pulpitrock.jpg" /></svg></button>
+        
+    </div>
+
+    <br><br>
+    <h1>DARK AND LIGHT MODE IN CSS ONLY</h1>
+    <div class="gradient-text">
+        <h1>Being one of the most powerful, and versatile programming languages</h1>
+    </div>
+
+    <div class = 'toggle-switch'>
+        <label>
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+        </label>
+    </div>    
+    <select>
+        <option value="light">Lightmode</option>
+        <option value="dark">Darkmode</option>
+    </select>
+  
+    
+    <h1>Numbering in html </h1>
+    <h2>Introduction</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam odit corrupti nostrum ullam, ipsum voluptas vero quibusdam aliquam repellat, excepturi autem unde sit neque accusantium voluptates fugiat id? Commodi, magni.</p>
+    <h2>Preparation</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat quo reiciendis suscipit alias quia maxime libero quidem. In eaque fugit magnam perferendis voluptatibus enim eveniet eius explicabo quaerat, neque voluptatum?</p>
+    <h2>Ingedients</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia consequuntur fugit cupiditate delectus. Reprehenderit ex ad obcaecati iusto voluptates velit provident dolores possimus, neque laborum facilis architecto illo quia tempora.</p>
+    <h2>Common Mistakes</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem repellendus delectus cupiditate temporibus eveniet ipsum iusto suscipit labore ducimus possimus? Dolor distinctio error harum corrupti soluta quasi quos fuga modi.</p>
+    
+
+    <h1>CARD SWIPE</h1>
+    <div class="wrapper">
+        <div class="caos">
+            <h3>Card 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestias dolores earum beatae deserunt atque dolore temporibus cum, recusandae cumque sit accusamus in libero voluptatum amet architecto similique adipisci? Voluptates.</p>
+        </div>    
+        <div class="caos">
+            <h3>Card 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestias dolores earum beatae deserunt atque dolore temporibus cum, recusandae cumque sit accusamus in libero voluptatum amet architecto similique adipisci? Voluptates.</p>
+        </div>    
+        <div class="caos">
+            <h3>Card 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestias dolores earum beatae deserunt atque dolore temporibus cum, recusandae cumque sit accusamus in libero voluptatum amet architecto similique adipisci? Voluptates.</p>
+        </div>    
+        <div class="caos">
+            <h3>Card 4</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestias dolores earum beatae deserunt atque dolore temporibus cum, recusandae cumque sit accusamus in libero voluptatum amet architecto similique adipisci? Voluptates.</p>
+        </div>    
+        <div class="caos">
+            <h3>Card 5</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestias dolores earum beatae deserunt atque dolore temporibus cum, recusandae cumque sit accusamus in libero voluptatum amet architecto similique adipisci? Voluptates.</p>
+        </div>    
+        
+    </div>
+</body>
+</html>
